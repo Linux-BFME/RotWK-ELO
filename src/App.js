@@ -1,22 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { getDatabase, ref, set } from "firebase/database";
 
 function App() {
+  function writeHelloToDatabase() {
+    const db = getDatabase();
+    set(ref(db, '/'), {
+      "hello": "world"
+    });
+  }
+
+  // Make a button that calls writeHelloToDatabase
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello World!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={writeHelloToDatabase}> Write to database </button>
       </header>
     </div>
   );
