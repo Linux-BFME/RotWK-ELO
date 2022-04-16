@@ -1,15 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import { getDatabase, ref, set } from "firebase/database";
 import { initializeFirebase } from "./firebase";
+import { updateScoreInDb } from "./database";
 
 function App() {
   initializeFirebase();
-
-  function writeHelloToDatabase() {
-    const db = getDatabase();
-    set(ref(db, '/elo/test'), 50);
-  }
 
   return (
     <div className="App">
@@ -18,7 +13,7 @@ function App() {
         <p>
           Hello World!
         </p>
-        <button onClick={writeHelloToDatabase}> Write to database </button>
+        <button onClick={() => updateScoreInDb("test", 50)}> Write to database </button>
       </header>
     </div>
   );
