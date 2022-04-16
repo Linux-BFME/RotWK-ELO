@@ -1,16 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import { getDatabase, ref, set } from "firebase/database";
+import { initializeFirebase } from "./firebase";
 
 function App() {
+  initializeFirebase();
+
   function writeHelloToDatabase() {
     const db = getDatabase();
-    set(ref(db, '/'), {
-      "hello": "world"
-    });
+    set(ref(db, '/elo/test'), 50);
   }
-
-  // Make a button that calls writeHelloToDatabase
 
   return (
     <div className="App">
