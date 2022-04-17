@@ -8,7 +8,12 @@ import {initializeFirebase, terminateFirebase} from './firebase.js';
 import {maxElo, minElo} from './elo';
 
 // Before running any tests, initialize Firebase
-initializeFirebase();
+beforeAll(() => {
+  jest.spyOn(console, 'log').mockImplementation(() => {});
+  initializeFirebase();
+  expect(console.log).toHaveBeenCalledTimes(1);
+  console.log.mockRestore();
+});
 
 test('Write to database then expect to see that value', () => {
   updateScoreInDb('test1', 50).then(() => {
