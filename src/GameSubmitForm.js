@@ -102,6 +102,7 @@ class GameSubmit extends Component {
         <br />
         <input type="submit" value="Submit" />
         <br />
+        <br />
         Status:
         <br />
         {this.state.status}
