@@ -57,14 +57,14 @@ class GameSubmit extends Component {
               loserScore,
           );
           updateScoresInDb([
-            {name: this.state.winnerGR, score: winnerScore},
+            {name: this.state.winnerGR, score: newWinnerScore},
             {name: this.state.loserGR, score: newLoserScore},
           ]).then(() => {
             alert(
                 `${this.state.winnerGR}'s score has been updated from ` +
-                `${winnerScore} to ${newWinnerScore}\n` +
-                `${this.state.loserGR}'s score has been updated from ` +
-                `${loserScore} to ${newLoserScore}`,
+                `${Math.round(winnerScore)} to ${Math.round(newWinnerScore)}` +
+                `\n${this.state.loserGR}'s score has been updated from ` +
+                `${Math.round(loserScore)} to ${Math.round(newLoserScore)}`,
             );
           });
         },
