@@ -18,6 +18,7 @@ class GameSubmit extends Component {
     this.state = {
       winnerGR: '',
       loserGR: '',
+      status: 'Ready to submit a new game!',
     };
     this.handleWinnerGrChange = this.handleWinnerGrChange.bind(this);
     this.handleLoserGrChange = this.handleLoserGrChange.bind(this);
@@ -47,8 +48,10 @@ class GameSubmit extends Component {
    */
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({status: 'Getting scores from database...'});
     getScoresFromDb([this.state.winnerGR, this.state.loserGR]).then(
         (snapshots) => {
+          this.setState({status: 'Calculating new elo ratings...'});
           const winnerScore = snapshots[0].val() || 1200;
           const loserScore = snapshots[1].val() || 1200;
           console.log(winnerScore, loserScore);
@@ -56,16 +59,17 @@ class GameSubmit extends Component {
               winnerScore,
               loserScore,
           );
+          this.setState({status: 'Updating database...'});
           updateScoresInDb([
             {name: this.state.winnerGR, score: newWinnerScore},
             {name: this.state.loserGR, score: newLoserScore},
           ]).then(() => {
-            alert(
-                `${this.state.winnerGR}'s score has been updated from ` +
-                `${Math.round(winnerScore)} to ${Math.round(newWinnerScore)}` +
-                `\n${this.state.loserGR}'s score has been updated from ` +
-                `${Math.round(loserScore)} to ${Math.round(newLoserScore)}`,
-            );
+            this.setState({
+              status: `${this.state.winnerGR}'s score has been updated from ` +
+              `${Math.round(winnerScore)} to ${Math.round(newWinnerScore)}` +
+              `\n${this.state.loserGR}'s score has been updated from ` +
+              `${Math.round(loserScore)} to ${Math.round(newLoserScore)}`,
+            });
           });
         },
     );
@@ -97,6 +101,10 @@ class GameSubmit extends Component {
         </label>
         <br />
         <input type="submit" value="Submit" />
+        <br />
+        Status:
+        <br />
+        {this.state.status}
       </form>
     );
   }
