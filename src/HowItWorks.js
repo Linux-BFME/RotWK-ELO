@@ -76,7 +76,7 @@ class HowItWorks extends Component {
             <a href="https://github.com/Linux-BFME/RotWK-ELO">github.com/Linux-BFME/RotWK-ELO</a>
           </li>
           <li>
-            PRs are accepted!
+            PRs accepted!
           </li>
         </ul>
       </div>
