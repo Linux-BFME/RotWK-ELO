@@ -4,6 +4,7 @@ import {initializeFirebase} from './firebase';
 import GameSubmit from './GameSubmitForm.js';
 import React from 'react';
 import HowItWorks from './HowItWorks';
+import ScoreLookup from './ScoreLookup';
 
 /**
  * Main App component that you see on the main page.
@@ -20,6 +21,7 @@ function App() {
         <hr />
         <GameSubmit />
         <img src={logo} className="App-logo" alt="logo" />
+        <ScoreLookup />
         <HowItWorks />
       </header>
     </div>
