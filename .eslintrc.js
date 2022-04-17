@@ -18,7 +18,15 @@ module.exports = {
     'react',
   ],
   'rules': {
+    'linebreak-style': [
+      'error',
+      'unix',
+    ],
   },
+  'ignorePatterns': [
+    'node_modules/',
+    'build/',
+  ],
   'settings': {
     'react': {
       'version': 'detect',

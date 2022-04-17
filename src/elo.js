@@ -3,9 +3,9 @@ export const minElo = 0;
 
 /**
  * Calculates the change in ELO for a given score
- * @param {number} winnerElo 
- * @param {number} loserElo 
- * @returns The amount each ELO should change by
+ * @param {number} winnerElo
+ * @param {number} loserElo
+ * @return {number} The amount each ELO should change by
  */
 export const getEloChange = (winnerElo, loserElo) => {
   const k = 32;
@@ -15,9 +15,9 @@ export const getEloChange = (winnerElo, loserElo) => {
 
 /**
  * Calculates the new ELO for users after a game
- * @param {number} winnerElo 
- * @param {number} loserElo 
- * @returns Array of new ELOs
+ * @param {number} winnerElo
+ * @param {number} loserElo
+ * @return {number[]} Array of new ELOs
  */
 export const getNewElo = (winnerElo, loserElo) => {
   if (winnerElo == null) {
@@ -27,5 +27,8 @@ export const getNewElo = (winnerElo, loserElo) => {
     loserElo = 1200;
   }
   const eloChange = getEloChange(winnerElo, loserElo);
-  return [Math.min(winnerElo + eloChange, maxElo), Math.max(loserElo - eloChange, minElo)];
+  return [
+    Math.min(winnerElo + eloChange, maxElo),
+    Math.max(loserElo - eloChange, minElo),
+  ];
 };
