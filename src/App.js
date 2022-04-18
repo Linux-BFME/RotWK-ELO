@@ -16,7 +16,7 @@ function App() {
   initializeFirebase();
 
   return (
-    <div className="App">
+    <div className="App" style={{cursor: 'url(images/cursor.png),auto'}}>
       <header className="App-header">
         <hr />
         <GameSubmit />
