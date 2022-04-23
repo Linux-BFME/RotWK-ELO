@@ -16,14 +16,18 @@ function App() {
   initializeFirebase();
 
   return (
-    <div className="App" style={{cursor: 'url(images/cursor.png),auto'}}>
-      <header className="App-header">
+    <div>
+      <div className="App" style={{cursor: 'url(images/cursor.png),auto'}}>
+        <header className="App-header">
+        BFME ELO
+        </header>
         <hr />
         <GameSubmit />
         <img src={logo} className="App-logo" alt="logo" />
         <ScoreLookup />
         <HowItWorks />
-      </header>
+      </div>
+
     </div>
   );
 }

@@ -90,11 +90,12 @@ class GameSubmit extends Component {
    */
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} autoComplete="on" >
         <label>
           Winner GR:{' '}
           <input
             type="text"
+            autoComplete="on"
             value={this.state.winnerGR}
             onChange={this.handleWinnerGrChange}
           />
