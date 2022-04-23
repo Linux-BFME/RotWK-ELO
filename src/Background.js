@@ -12,7 +12,7 @@ function Background() {
 
   return (
     <div style={{
-      backgroundImage: 'url(images/background.webp)',
+      backgroundImage: 'url(images/background.jpg)',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
