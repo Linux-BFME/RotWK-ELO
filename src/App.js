@@ -5,6 +5,7 @@ import GameSubmit from './GameSubmitForm.js';
 import React from 'react';
 import HowItWorks from './HowItWorks';
 import ScoreLookup from './ScoreLookup';
+import Background from './Background';
 
 /**
  * Main App component that you see on the main page.
@@ -17,25 +18,7 @@ function App() {
 
   return (
     <div>
-      <div style={{
-        backgroundImage: 'url(images/background.webp)',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        // Add blur effect to background
-        filter: 'blur(5px)',
-        // Take up whole page
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: -1,
-        // Don't move on scroll
-        transform: 'translateZ(0)',
-
-
-      }}/>
+      <Background />
       <div className="App"
         id="App"
         style={{
@@ -43,7 +26,7 @@ function App() {
         }}
       >
         <header className="App-header">
-        BFME ELO
+          BFME ELO
         </header>
         <hr />
         <GameSubmit />
