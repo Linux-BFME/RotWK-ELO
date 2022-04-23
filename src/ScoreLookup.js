@@ -45,7 +45,11 @@ class ScoreLookup extends Component {
             `${Math.round(snapshot.val() || 1200)}`,
           });
         },
-    );
+    ).catch((error) => {
+      this.setState({
+        status: `Error - ${error.message} (check your input)`,
+      });
+    });
   }
 
   /**

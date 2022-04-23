@@ -70,10 +70,19 @@ class GameSubmit extends Component {
               `\n${this.state.loserGR}'s score has been updated from ` +
               `${Math.round(loserScore)} to ${Math.round(newLoserScore)}`,
             });
+          }).catch((error) => {
+            this.setState({
+              status: `Error - ${error.message} (check your input}`},
+            );
           });
         },
-    );
+    ).catch((error) => {
+      this.setState({
+        status: `Error - ${error.message} (check your input)`,
+      });
+    });
   }
+
 
   /**
    * @return {React.Component} The form for submitting the winner and loser
